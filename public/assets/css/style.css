@@ -1,0 +1,35 @@
+body {
+  background: url('../images/arnold-conquer.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Chelsea Market', cursive;
+  color: white;
+}
+
+h1, a {
+  color: white;
+}
+
+.page-header {
+  background: transparent;
+  border: none;
+}
+
+h1, button {
+  margin-left: 10%;
+}
+
+#menu {
+  margin-top: 200px;
+}
+
+form {
+  margin-top: 25%;
+}
+
+.opacity {
+  opacity: 0.5;
+    filter: alpha(opacity=10);
+}

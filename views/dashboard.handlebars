@@ -21,10 +21,11 @@
 		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
 			<div class="">
-				<h3><span class="fa fa-user"></span> Welcome! {{user.user_name}}</h3>
+				<h3><span class="fa fa-user"></span> Welcome! {{user.first_name}}{{user.last_name}}</h3>
 				<p>
 					<strong>id</strong>: {{user.id }}<br>
 					<strong>username</strong>: {{ user.user_name}}<br>
+					<strong>goals</strong> : {{user.fitness_goals}}<br>
 					<!-- <strong>password</strong>: {{ user.password}} -->
 				</p>
 				<button type="button" name="button" class="btn btn-default" href="/profile">Profile</button>

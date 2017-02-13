@@ -1,0 +1,48 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Arnold</title>
+
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span>Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-6">
+			<div class="">
+				<h3><span class="fa fa-user"></span> Profile of :{{user.first_name}}  {{user.last_name}}</h3>
+				<p>
+					<strong>id</strong>: {{user.id }}<br>
+          <strong>Information</strong> : {{user.fitness_goals}}<br>
+					<strong>Name</strong>: {{ user.first_name}}   {{ user.last_name}}<br>
+          <strong>Age</strong> : {{user.user_age}}<br>
+          <strong>gender</strong> : {{user.user_gender}}<br>
+          <strong>weight</strong> : {{user.user_weight}}<br>
+          <strong>goals</strong> : {{user.fitness_goals}}<br>
+					<!-- <strong>password</strong>: {{ user.password}} -->
+				</p>
+				<!-- <button type="button" name="button" class="btn btn-default" href="/profile">Profile</button> -->
+				<button type="button" name="button" class="btn btn-default" href="/workout">workout</button>
+				<button type="button" name="button" class="btn btn-default" href="/workout">etc etc..</button>
+
+
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>

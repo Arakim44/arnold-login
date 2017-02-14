@@ -30,48 +30,7 @@ module.exports = function(passport) {
 
     });
 
-    // =========================================================================
-    // LOCAL SIGNUP ============================================================
-    // =========================================================================
-    // we are using named strategies since we have one for login and one for signup
-    // by default, if there was no name, it would just be called 'local'
 
-    // passport.use(
-    //     'local-signup',
-    //     new LocalStrategy({
-    //             // by default, local strategy uses username and password, we will override with email
-    //             usernameField: 'username',
-    //             passwordField: 'password',
-    //             passReqToCallback: true // allows us to pass back the entire request to the callback
-    //         },
-    //         function(req, user, password, done) {
-    //             db.User.findAll({
-    //                 where: {
-    //                     user_name: user
-    //                 }
-    //             }).then(function(rows) {
-    //                 if (rows.length) {
-    //                     return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
-    //                 } else {
-    //                     // if there is no user with that username
-    //                     // create the user
-    //                     var newUserMysql = {
-    //                         user_name: user,
-    //                         user_password: bcrypt.hashSync(password, null, null) // use the generateHash function in our user model
-    //                     };
-    //                     db.User.create(newUserMysql).then(function(createdUser) {
-    //                         return done(null, createdUser);
-    //                     });
-    //                 }
-    //             });
-    //         })
-    // );
-
-    // =========================================================================
-    // LOCAL LOGIN =============================================================
-    // =========================================================================
-    // we are using named strategies since we have one for login and one for signup
-    // by default, if there was no name, it would just be called 'local'
 
     passport.use(
         'local-login',

@@ -13,7 +13,6 @@
 
 	<div class="page-header text-center">
 		<h1><span class="fa fa-anchor"></span>Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
 	</div>
 
 	<div class="row">
@@ -23,6 +22,7 @@
 			<div class="">
 				<h3><span class="fa fa-user"></span> Profile of :{{user.first_name}}  {{user.last_name}}</h3>
 				<p>
+          <a href="/editProfile" class="btn btn-default btn-sm">Edit profile</a>
 					<strong>id</strong>: {{user.id }}<br>
           <strong>Information</strong> : {{user.fitness_goals}}<br>
 					<strong>Name</strong>: {{ user.first_name}}   {{ user.last_name}}<br>
@@ -33,9 +33,6 @@
 					<!-- <strong>password</strong>: {{ user.password}} -->
 				</p>
 				<!-- <button type="button" name="button" class="btn btn-default" href="/profile">Profile</button> -->
-				<button type="button" name="button" class="btn btn-default" href="/workout">workout</button>
-				<button type="button" name="button" class="btn btn-default" href="/workout">etc etc..</button>
-
 
 
 			</div>

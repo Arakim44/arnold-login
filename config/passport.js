@@ -4,7 +4,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
-var mysql = require('mysql');
+// var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var db = require("../model");
 
@@ -88,7 +88,7 @@ module.exports = function(passport) {
                 console.log(rows);
 
                 if (!rows.length) {
-                  
+
                   return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
                 }
 

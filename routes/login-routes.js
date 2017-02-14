@@ -111,6 +111,41 @@ app.get('/profile', function(req, res) {
 		});
 });
 
+//=========================
+//Edit profile
+//====================
+
+  app.get('/editProfile', function(req, res) {
+  		res.render('editProfile',{
+				user:req.user
+			});
+
+		});
+
+
+ app.post('/editProfile',function(req,res){
+	 console.log("********",req.body);
+	 var editedUser = {
+		 first_name: req.body.firstname,
+		 last_name: req.body.lastname,
+		 user_gender: req.body.gender,
+		 user_age: req.body.age,
+		 user_weight: req.body.weight,
+		 fitness_goals:req.body.goals
+	 }
+	 db.User.update(
+		 editedUser,
+		 {
+			where: {
+				id: req.user.id
+			}
+		}).then(function(dbUser){
+      res.redirect('/profile')
+			});
+ });
+
+
+
 
 // =====================================
 // LOGOUT ==============================

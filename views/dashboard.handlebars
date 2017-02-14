@@ -32,12 +32,17 @@
 				</p>
 
 		<div class="col-sm-6">
-			<div class="">
-				<!-- <h3>workout to do list</h3> -->
 
-
-
-
+			<div class="otherUsernames">
+				<h2>Other Users&goals</h2>
+				<ol>
+					{{#each otherUser}}
+					<li>
+						{{this.user_name}}  & 
+						{{this.fitness_goals}}
+					</li>
+					{{/each}}
+				</ol>
 			</div>
 
 		</div>

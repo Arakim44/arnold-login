@@ -1,14 +1,4 @@
-<!-- views/profile.ejs -->
-<!doctype html>
-<html>
-<head>
-	<title>Arnold</title>
 
-	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
-	</style>
-</head>
-<body>
 <div class="container">
 
 	<div class="page-header text-center">
@@ -20,7 +10,7 @@
 		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
 			<div class="">
-				<h3><span class="fa fa-user"></span> Welcome! {{user.first_name}}{{user.last_name}}</h3>
+				<h3><span class="fa fa-user"></span> Welcome! {{user.first_name}} {{user.last_name}}</h3>
 				<p>
 					<strong>id</strong>: {{user.id }}<br>
 					<strong>username</strong>: {{ user.user_name}}<br>
@@ -47,5 +37,3 @@
 	</div>
 
 </div>
-</body>
-</html>

@@ -1,6 +1,9 @@
 // app/routes.js
 var db = require("../model");
 var bcrypt = require('bcrypt-nodejs');
+
+var request = require('request-promise');
+
 var request = require('request');
 
 module.exports = function(app, passport) {
@@ -191,6 +194,81 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+});
+
+
+//==================================================
+//PROFILE SECTION=================================
+//==========================================
+app.get('/profile', function(req, res) {
+		res.render('profile',{
+			user: req.user
+		});
+});
+
+//=========================
+//Edit profile
+//====================
+
+  app.get('/editProfile', function(req, res) {
+  		res.render('editProfile',{
+				user:req.user
+			});
+
+		});
+
+
+ app.post('/editProfile',function(req,res){
+	 console.log("********",req.body);
+	 var editedUser = {
+		 first_name: req.body.firstname,
+		 last_name: req.body.lastname,
+		 user_gender: req.body.gender,
+		 user_age: req.body.age,
+		 user_weight: req.body.weight,
+		 fitness_goals:req.body.goals
+	 }
+	 db.User.update(
+		 editedUser,
+		 {
+			where: {
+				id: req.user.id
+			}
+		}).then(function(dbUser){
+      res.redirect('/profile')
+			});
+ });
+
+ app.get('/workout', function(req,res) {
+ 	res.render('workout')
+  });
+
+  //  app.get('/workout', function(req, res){
+  //  	request({
+  //  		uri: 'http://wger.de/api/v2/exercise',
+  //  		qs: {
+  //  			apiKey: 'b40df930ca66b964789c1671fac9d48ddee236ba'
+  //  		},
+  //  		json: true
+  //  	})
+  //  		.then((data) => {
+  //  			console.log(data);
+  //  			res.send(data)
+  //  		})
+  //  		.catch((err) => {
+  //  			console.log(err)
+  //  			res.send(err)
+  //  		})
+  //  });
+
+
+  // =====================================
+  // LOGOUT ==============================
+  // =====================================
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
 };
 
 // route middleware to make sure

@@ -1,3 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta charset="UTF-8">
+	<title>Arnold!</title>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+	<!-- Optional theme -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Chelsea+Market" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="/assets/css/style.css" type="text/css" /> -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/css/clean-blog.min.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+	<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+	    <!-- Navigation -->
+
+			<header class="intro-header" style="background-image:url('/assets/images/dashboard.jpg')">
+					<div class="container">
+							<div class="row">
+									<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+											<div class="site-heading">
+													<h1>Workouts.</h1>
+													<hr class="small">
+													<span class="subheading">Explore every workouts</span></br></br>
+                          <button type="submit" class="btn btn-primary btn-md" id="searchBtn"><span class="glyphicon glyphicon-search"></span>Search</button>
+											</div>
+									</div>
+							</div>
+					</div>
+			</header>
+
+
+      <div class="container">
+        <div class="row">
+          <div class = 'col-md-2'></div>
+          <div class='col-md-8'>
+                <!-- div to store api data -->
+            <div id = "main"></div>
+          </div>
+          <div class = 'col-md-2'></div>
+        </div>
+      </div>
+
+      <!--making ajax call to api here -->
+      <script type="text/javascript">
+          $("#searchBtn").on("click", function() {
+            $.get("http://wger.de/api/v2/exercise/", function(data) {
+              console.log(data);
+              if (data) {
+                console.log(data);
+                console.log("data: ", data.results);
+                var liArray = data.results.map(function(exercise, index){
+                  return '<li class = "ex-list"><a href="#">' + exercise.name + '</a></li></br>' +
+                  '<p>' + exercise.description + '</p>'
+                })
+                console.log(liArray);
+                var el = document.querySelector('#main');
+                el.innerHTML = liArray.join('');
+              } else {
+                $("#main").text("Something went wrong. Your data was not found.");
+              }
+            });
+          });
+        </script>
+
+					<!-- Footer -->
+					<br>
+					<hr>
+					<footer>
+							<div class="container">
+									<div class="row">
+											<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+													<ul class="list-inline text-center">
+															<li>
+																	<a href="#">
+																			<span class="fa-stack fa-lg">
+																					<i class="fa fa-circle fa-stack-2x"></i>
+																					<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+																			</span>
+																	</a>
+															</li>
+															<li>
+																	<a href="#">
+																			<span class="fa-stack fa-lg">
+																					<i class="fa fa-circle fa-stack-2x"></i>
+																					<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+																			</span>
+																	</a>
+															</li>
+															<li>
+																	<a href="#">
+																			<span class="fa-stack fa-lg">
+																					<i class="fa fa-circle fa-stack-2x"></i>
+																					<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+																			</span>
+																	</a>
+															</li>
+													</ul>
+													<p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+											</div>
+									</div>
+							</div>
+					</footer>
+	</body>
+</html>
+
 <header class="intro-header" style="background-image:url('/assets/images/dashboard.jpg')">
 		<div class="container">
 				<div class="row">
@@ -11,3 +130,4 @@
 				</div>
 		</div>
 </header>
+

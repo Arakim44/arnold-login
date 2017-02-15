@@ -228,6 +228,20 @@ body {
     display: inline-block;
 }
 
+#main {
+  background-color: white;
+  color: black;
+}
+
+.ex-list {
+  list-style: none;
+  text-decoration: underline;
+}
+
+#searchBtn{
+  background-color: transparent;
+}
+
 @media (max-width:767px) {
     #wrapper {
         padding-left: 70px;

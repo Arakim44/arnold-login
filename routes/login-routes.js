@@ -1,7 +1,10 @@
 // app/routes.js
 var db = require("../model");
 var bcrypt = require('bcrypt-nodejs');
+var request = require('request');
+
 module.exports = function(app, passport) {
+
 
     // =====================================
     // HOME PAGE (with login links) ========

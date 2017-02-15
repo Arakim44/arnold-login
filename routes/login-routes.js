@@ -1,6 +1,7 @@
 // app/routes.js
 var db = require("../model");
 var bcrypt = require('bcrypt-nodejs');
+var request = require('request-promise');
 module.exports = function(app, passport) {
 
     // =====================================
@@ -144,16 +145,36 @@ app.get('/profile', function(req, res) {
 			});
  });
 
+ app.get('/workout', function(req,res) {
+ 	res.render('workout')
+  });
+
+  //  app.get('/workout', function(req, res){
+  //  	request({
+  //  		uri: 'http://wger.de/api/v2/exercise',
+  //  		qs: {
+  //  			apiKey: 'b40df930ca66b964789c1671fac9d48ddee236ba'
+  //  		},
+  //  		json: true
+  //  	})
+  //  		.then((data) => {
+  //  			console.log(data);
+  //  			res.send(data)
+  //  		})
+  //  		.catch((err) => {
+  //  			console.log(err)
+  //  			res.send(err)
+  //  		})
+  //  });
 
 
-
-// =====================================
-// LOGOUT ==============================
-// =====================================
-app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-});
+  // =====================================
+  // LOGOUT ==============================
+  // =====================================
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
 };
 
 // route middleware to make sure

@@ -1,4 +1,92 @@
+.box {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+
+.box-header {
+    position: relative;
+    padding: 1.5rem 1.6rem;
+    border-bottom: 1px solid #ececec;
+    height: 6.1rem;
+}
+/*
+.pill.is-active, .pill.is-next {
+    background-color: #1f7de2;
+    background-image: linear-gradient(#228dff,#1f7de2);
+    border-color: #1e56db;
+}*/
+
+.pill {
+    display: block;
+    position: relative;
+    height: 6.1rem;
+    padding: 1.5rem 1.6rem;
+    background-color: #eee;
+    background-image: linear-gradient(#f8f8f8,#eee);
+    border-bottom: 1px solid #cfcfcf;
+}
+/*
+.pill-list>li {
+    position: relative;
+}*/
+*, :after, :before {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+
+
+/*profile sidebar*/
+
 body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+/*profile sidebar*/
+/*ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}*/
+
+
+/*body {
     background: url('../images/arnold-conquer.') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -6,7 +94,9 @@ body {
     background-size: cover;
     font-family: 'Chelsea Market', cursive;
     color: white;
-}
+}*/
+
+
 /*
 h1, a {
     color: white;

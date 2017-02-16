@@ -4,8 +4,6 @@ var bcrypt = require('bcrypt-nodejs');
 
 var request = require('request-promise');
 
-
-
 module.exports = function(app, passport) {
 
 
@@ -142,9 +140,18 @@ module.exports = function(app, passport) {
     //PROFILE SECTION=================================
     //==========================================
     app.get('/profile', function(req, res) {
-        res.render('profile', {
+        db.Workouts.findAll({
+          where: {
+              UserId: req.user.id
+          }
+        }).then(function(workouts){
+          res.render('profile', {
+            workouts:workouts,
             user: req.user
+          });
+
         });
+
     });
 
     //=========================
@@ -182,11 +189,17 @@ module.exports = function(app, passport) {
     //=====================================
     //workout==============================
     app.get('/workout', function(req, res) {
+      console.log("********",req.user);
         res.render('workout', {
             user: req.user
         });
     });
 
+    app.get('/workout2', function(req, res) {
+     res.render('workout2', {
+         user: req.user
+     });
+ });
 
     // app.get('/image/:exercise', function(req, res){
     //   exercise = {
@@ -201,6 +214,24 @@ module.exports = function(app, passport) {
     //   }
     //   res.send(exercise.data.id)
     // })
+
+    app.post("/workout",function(req,res){
+      var newWorkout = {
+        monday: req.body.monday,
+        tuesday: req.body.tuesday,
+        wednesday: req.body.wednesday,
+        thursday: req.body.thursday,
+        friday: req.body.friday,
+        saturday:req.body.saturday,
+        sunday: req.body.sunday,
+        UserId: req.user.id
+      };
+      db.Workouts.create(newWorkout).then(function(createWorkout){
+        req.flash('success_msg','You successfully added workouts.');
+        res.redirect('/workout');
+      })
+
+    })
 
 
     // =====================================

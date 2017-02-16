@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 var request = require('request-promise');
 
-var request = require('request');
+
 
 module.exports = function(app, passport) {
 
@@ -187,6 +187,22 @@ module.exports = function(app, passport) {
         });
     });
 
+
+    // app.get('/image/:exercise', function(req, res){
+    //   exercise = {
+    //     'value': exercise.name,
+    //     'data': {
+    //         'id': exercise.id,
+    //         'name': exercise.name,
+    //         'category': _(exercise.category.name),
+    //         'image': image,
+    //         'image_thumbnail': thumbnail
+    //     }
+    //   }
+    //   res.send(exercise.data.id)
+    // })
+
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
@@ -194,7 +210,7 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
-});
+// });
 
 
 //==================================================
@@ -239,27 +255,6 @@ app.get('/profile', function(req, res) {
 			});
  });
 
- app.get('/workout', function(req,res) {
- 	res.render('workout')
-  });
-
-  //  app.get('/workout', function(req, res){
-  //  	request({
-  //  		uri: 'http://wger.de/api/v2/exercise',
-  //  		qs: {
-  //  			apiKey: 'b40df930ca66b964789c1671fac9d48ddee236ba'
-  //  		},
-  //  		json: true
-  //  	})
-  //  		.then((data) => {
-  //  			console.log(data);
-  //  			res.send(data)
-  //  		})
-  //  		.catch((err) => {
-  //  			console.log(err)
-  //  			res.send(err)
-  //  		})
-  //  });
 
 
   // =====================================
